@@ -156,42 +156,6 @@ c = 6
 d = 4684684
 ```
 
----
-
-## `test7.wave` (✔)
-
-```wave
-fun main() {
-    var a :i32 = 20;
-    var b :i32 = 20;
-
-    if (a > 30) {
-        println("a is greater than 30");
-    } else {
-        println("a is less than or equal to 30");
-    }
-
-    if (b < a) {
-        println("b is less than a");
-    } else if (b == a) {
-        println("b is equal to a");
-    } else {
-        println("b is greater than a");
-    }
-
-}
-```
-
-```text
-clang failed: target/temp.ll:17:31: error: expected value token
-  %cmptmp = icmp sgt i32 %a1, i64 30
-                              ^
-1 error generated.
-
-Failed to generate machine code
-```
-
----
 
 ## `test7.wave` (❌)
 
