@@ -4,7 +4,7 @@ A website that shows the results of testing elements in the test/directory of th
 
 ---
 
-## ![Latest version](https://img.shields.io/github/v/release/LunaStev/Wave?style=for-the-badge&include_prereleases)
+## ![Wave Version](https://www.wave-lang.dev/img/version.svg)
 
 ---
 
