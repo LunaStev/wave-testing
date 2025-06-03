@@ -158,7 +158,7 @@ d = 4684684
 
 ---
 
-## `test7.wave` (⭕)
+## `test7.wave` (✔)
 
 ```wave
 fun main() {
