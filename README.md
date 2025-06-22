@@ -66,20 +66,14 @@ Hello World
 import("iosys");
 
 fun main() {
-    var imm a :i32 = 10;
+    let a :i32 = 10;
     var b :i32 = 5;
     println("Hello World");
 }
 ```
 
 ```text
-luna@DESKTOP-VSM7GMK:/mnt/d/Programming/Wave$ wavec run test/test3.wave
-Expected ':' after identifier
-❌ Failed to parse function
-
-thread 'main' panicked at src/runner.rs:17:34:
-Failed to parse Wave code
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+❌ Failed to import 'iosys'
 ```
 
 ---
@@ -124,17 +118,14 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:13:30: error: expected value token
-  %cmptmp = icmp eq i32 %a1, i64 10
-                             ^
-1 error generated.
-
-Failed to generate machine code
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+fwf
 ```
 
 ---
 
-## `test6.wave` (❌)
+## `test6.wave` (✔)
 
 ```wave
 fun main() {
@@ -182,12 +173,10 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:17:31: error: expected value token
-  %cmptmp = icmp sgt i32 %a1, i64 30
-                              ^
-1 error generated.
-
-Failed to generate machine code
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+b is greater than a
 ```
 
 ---
@@ -214,17 +203,14 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:16:31: error: expected value token
-  %cmptmp = icmp sgt i32 %a1, i64 30
-                              ^
-1 error generated.
-
-Failed to generate machine code
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+b is greater than 30
 ```
 
 ---
 
-## `test9.wave` (✔)
+## `test9.wave` (❌)
 
 ```wave
 fun main() {
@@ -307,15 +293,21 @@ fun main() {
 ```
 
 ```text
-a != b
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
 a > b
-a >= b
-a != c
 a > c
-a >= c
-b != c
 b > c
-b >= c
 a == a
 b == b
 c == c
@@ -323,7 +315,7 @@ c == c
 
 ---
 
-## `test10.wave` (✔)
+## `test10.wave` (❌)
 
 ```wave
 fun main() {
@@ -368,14 +360,28 @@ fun main() {
 ```
 
 ```text
-15
-30
-40
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Lbrace
+Error: Expected primary expression, found Else
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Rbrace
+clang failed: target/temp.ll:73:1: error: expected instruction opcode
+}
+^
+1 error generated.
+
+Failed to generate machine code
 ```
 
 ---
 
-## `test11.wave` (❌)
+## `test11.wave` (✔)
 
 ```wave
 fun main() {
@@ -396,12 +402,11 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:15:31: error: expected value token
-  %cmptmp = icmp sle i32 %i1, i64 5
-                              ^
-1 error generated.
-
-Failed to generate machine code
+* 
+**
+***
+****
+*****
 ```
 
 ---
@@ -433,14 +438,9 @@ fun main() {
 ```
 
 ```text
-clang failed: warning: overriding the module target triple with x86_64-pc-linux-gnu [-Woverride-module]
-1 warning generated.
-/usr/bin/ld: /tmp/temp-280703.o: in function `main':
-main:(.text+0x4b): undefined reference to `trap'
-/usr/bin/ld: main:(.text+0x67): undefined reference to `trap'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-
-Failed to generate machine code
+thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:390:22:
+Unsupported target in IndexAccess
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
 ---
@@ -473,17 +473,20 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:21:34: error: expected value token
-  %cmptmp = icmp sgt i32 %name1, i64 10
-                                 ^
-1 error generated.
-
-Failed to generate machine code
+Error: Expected primary expression, found Rbrace
+Current: 0
+Current: 1
+Current: 2
+Current: 3
+Current: 4
+Hello 5
+Hello 2
+Hello World
 ```
 
 ---
 
-## `test15.wave` (❌)
+## `test15.wave` (✔)
 
 ```wave
 fun add(a :i32; b :i32;) -> i32 {
@@ -496,12 +499,7 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:20:23: error: '@add' defined with type 'i32 (i32, i32)*' but expected 'i32 (i64, i64)*'
-  %calltmp = call i32 @add(i64 4, i64 5)
-                      ^
-1 error generated.
-
-Failed to generate machine code
+9
 ```
 
 ---
@@ -523,12 +521,11 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:14:31: error: expected value token
-  %cmptmp = icmp slt i32 %i1, i64 5
-                              ^
-1 error generated.
-
-Failed to generate machine code
+Error: Expected primary expression, found Rbrace
+Value: 1
+Value: 2
+Value: 4
+Value: 5
 ```
 
 ---
@@ -613,17 +610,23 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:83:35: error: expected value token
-  %cmptmp12 = icmp eq i32 %cnt11, i64 2
-                                  ^
-1 error generated.
+Error: Expected primary expression, found Var
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Println
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found If
+Error: Expected primary expression, found Else
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
 
-Failed to generate machine code
+thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:64:17:
+variable 'cnt' not found in current scope
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
 ---
 
-## `test18.wave` (❌)
+## `test18.wave` (✔)
 
 ```wave
 fun add(a :i32; b :i32;) -> i32 {
@@ -638,12 +641,7 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:21:23: error: '@add' defined with type 'i32 (i32, i32)*' but expected 'i32 (i64, i64)*'
-  %calltmp = call i32 @add(i64 4, i64 5)
-                      ^
-1 error generated.
-
-Failed to generate machine code
+9
 ```
 
 ---
@@ -692,7 +690,7 @@ fun main() {
 
 ---
 
-## `test20.wave` (❌)
+## `test20.wave` (✔)
 
 ```wave
 fun fibonacci(n: i32) -> i32 {
@@ -734,12 +732,18 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:12:30: error: expected value token
-  %cmptmp = icmp eq i32 %n1, i64 0
-                             ^
-1 error generated.
-
-Failed to generate machine code
+fibonacci(0) = 0
+fibonacci(1) = 1
+fibonacci(2) = 1
+fibonacci(3) = 2
+fibonacci(4) = 3
+fibonacci(5) = 5
+fibonacci(6) = 8
+fibonacci(7) = 13
+fibonacci(8) = 21
+fibonacci(9) = 34
+fibonacci(10) = 55
+END FIBONACCI
 ```
 
 ---
@@ -806,11 +810,13 @@ fun main() {
 ```
 
 ```text
-❌ Failed to parse function
-
-thread 'main' panicked at src/runner.rs:17:34:
-Failed to parse Wave code
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Input
+Error: Expected ')'
+Error: Expected primary expression, found Rparen
+Error: Expected primary expression, found Decrement
+Error: Expected primary expression, found Increment
+❌ Failed to import 'iosys'
 ```
 
 ---
@@ -831,12 +837,12 @@ fun main() {
 ```text
 x = 10
 p = 10
-address = 140726848956164
+address = 140726731450484
 ```
 
 ---
 
-## `test24.wave` (✔)
+## `test24.wave` (❌)
 
 ```wave
 fun main() {
@@ -861,12 +867,12 @@ fun main() {
 ```
 
 ```text
-Before:
-a = 10, b = 20
-p1 = 10, p2 = 20
-After:
-a = 20, b = 10
-p1 = 20, p2 = 10
+clang failed: target/temp.ll:42:9: error: stored value and pointer type do not match
+  store i32 %deref_load14, i32** %p1, align 4
+        ^
+1 error generated.
+
+Failed to generate machine code
 ```
 
 ---
@@ -925,7 +931,7 @@ Hello World
 
 ---
 
-## `test28.wave` (❌)
+## `test28.wave` (✔)
 
 ### `math.wave`
 
@@ -961,13 +967,10 @@ fun main() {
 ```
 
 ```text
-luna@DESKTOP-VSM7GMK:/mnt/d/Programming/Wave$ wavec run test/test28/main.wave 
-clang failed: target/temp.ll:59:23: error: '@add' defined with type 'i32 (i32, i32)*' but expected 'i32 (i64, i64)*'
-  %calltmp = call i32 @add(i64 2, i64 3)
-                      ^
-1 error generated.
-
-Failed to generate machine code
+2 + 3 = 5
+2 - 3 = -1
+2 * 3 = 6
+2 / 3 = 0
 ```
 
 ---
@@ -991,21 +994,21 @@ fun main() {
 ```wave
 fun main() {
     var msg_ptr: ptr<i8> = "Hello from syscall!\n";
+    var ret_val: i64;
 
-    var ret: i64;
     asm {
+        "mov rax, 1"
         "syscall"
-        in("rax") 1       // write
-        in("rdi") 1       // stdout
-        in("rsi") msg_ptr // message address
-        in("rdx") 20      // message length
-        out("rax") ret
+        in("rdi") 1
+        in("rsi") msg_ptr
+        in("rdx") 20
+        out("rax") ret_val
     }
 }
 ```
 
 ```text
-Hello from syscall!\
+Hello from syscall!
 ```
 
 ---
@@ -1032,8 +1035,8 @@ fun main() {
 
 ```text
 a = 10, b = 20
-p1 = 140730730152852, p2 = 140730730152848
-pp1 = 140730730152840, pp2 = 140730730152832
+p1 = 140732170246612, p2 = 140732170246608
+pp1 = 140732170246600, pp2 = 140732170246592
 deref p1 = 10, deref p2 = 20
 ```
 
@@ -1055,12 +1058,9 @@ fun main() {
 ```
 
 ```text
-clang failed: target/temp.ll:17:9: error: stored value and pointer type do not match
-  store i32** %tmp_var_ptr, i32** %array_idx_0, align 8
-        ^
-1 error generated.
-
-Failed to generate machine code
+thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:390:22:
+Unsupported target in IndexAccess
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
 ---
@@ -1121,15 +1121,15 @@ fun main() {
 1
 1
 bonus:
-140720708477232
-140720708477240
-140720708477248
-140720708477256
-140720708477264
-140720708477272
-140720708477280
-140720708477288
-140720708477300
+140720655735600
+140720655735608
+140720655735616
+140720655735624
+140720655735632
+140720655735640
+140720655735648
+140720655735656
+140720655735668
 1
 ```
 
@@ -1145,5 +1145,551 @@ fun main() {
 ```
 
 ```text
-140721774174788
+140732170515428
+```
+
+---
+
+## `test35.wave` (✔)
+
+```wave
+fun len(s: str) -> i32 {
+    var count: i32 = 0;
+    while (s[count] != 0) {
+        count = count + 1;
+    }
+    return count;
+}
+
+fun main() {
+    var message: str = "hello, world!";
+    var l: i32 = len(message);
+    println("String Length: {}", l);
+}
+```
+
+```text
+String Length: 13
+```
+
+---
+
+## `test36.wave` (✔)
+
+```wave
+fun main() {
+    var a: i32 = 10;
+    var b: i32 = 3;
+    var c: i32 = a % b;
+    println("{}", c);
+}
+```
+
+```text
+1
+```
+
+---
+
+## `test37.wave` (✔)
+
+```wave
+fun main() {
+    var a: i32 = 10;
+    var b: i32 = 3;
+    var f: f32 = 10.0;
+    var g: f32 = 2.5;
+
+    a += b;
+    println("a += b: {}", a); // 13
+
+    a -= 5;
+    println("a -= 5: {}", a); // 8
+
+    a *= 2;
+    println("a *= 2: {}", a); // 16
+
+    a /= 4;
+    println("a /= 4: {}", a); // 4
+
+    a %= 3;
+    println("a %= 3: {}", a); // 1
+
+    f += g;
+    println("f += g: {}", f); // 12.5
+
+    f -= 1.5;
+    println("f -= 1.5: {}", f); // 11.0
+
+    f *= 2.0;
+    println("f *= 2.0: {}", f); // 22.0
+
+    f /= 2.0;
+    println("f /= 2.0: {}", f); // 11.0
+
+    f %= 2.0;
+    println("f %= 2.0: {}", f); // 1.0
+}
+```
+
+```text
+a += b: 13
+a -= 5: 8
+a *= 2: 16
+a /= 4: 4
+a %= 3: 1
+f += g: 12.500000
+f -= 1.5: 11.000000
+f *= 2.0: 22.000000
+f /= 2.0: 11.000000
+f %= 2.0: 1.000000
+```
+
+---
+
+## `test38.wave` (✔)
+
+```wave
+fun calculate_values(x: i32; y: i32; factor: f32) -> f32 {
+    println("inside calculate_values");
+    var result: f32 = x;
+    result += y;
+    result *= factor;
+    return result;
+}
+
+fun main() {
+    println("start");
+
+    var a: i32 = 12;
+    var b: i32 = 7;
+    var c: i32 = 3;
+    println("before math");
+
+    var f: f32 = 4.5;
+    var g: f32 = 2.0;
+
+    println("before operations");
+
+    a += b;
+    b *= 2;
+    c -= 1;
+
+    println("before function call");
+
+    var result: f32 = calculate_values(a, b, f);
+
+    println("after function call, result: {}", result);
+}
+```
+
+```text
+start
+before math
+before operations
+before function call
+inside calculate_values
+after function call, result: 148.500000
+```
+
+---
+
+## `test39.wave` (❌)
+
+```wave
+fun calculate_values(x: i32; y: i32; factor: f32) -> f32 {
+    println("inside calculate_values");
+    var result: f32 = x;
+    result += y;
+    result *= factor;
+    return result;
+}
+
+fun main() {
+    println("start");
+
+    var a: i32 = 12;
+    var b: i32 = 7;
+    var c: i32 = 3;
+    println("before math");
+
+    var f: f32 = 4.5;
+    var g: f32 = 2.0;
+
+    println("before operations");
+
+    a += b;
+    b *= 2;
+    c -= 1;
+
+    println("before function call");
+
+    var result: f32 = calculate_values(a, b, f);
+
+    println("after function call, result: {}", result);
+}
+```
+
+```text
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+Error: Expected primary expression, found Rbrace
+
+thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:64:17:
+variable 'result' not found in current scope
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+```
+
+---
+
+## `test40.wave` (❌)
+
+```wave
+fun main() {
+    var msg_ptr: ptr<str> = "Hello";
+    var msg_ptr2: ptr<i8> = "Hello";
+    println("{}", msg_ptr);
+    println("{}", msg_ptr2);
+}
+```
+
+```text
+clang failed: target/temp.ll:12:9: error: stored value and pointer type do not match
+  store i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str_init_msg_ptr, i32 0, i32 0), i8*** %msg_ptr, align 8
+        ^
+1 error generated.
+
+Failed to generate machine code
+```
+
+---
+
+## `test41.wave` (✔)
+
+```wave
+fun main() {
+    var s :str = "Line1\nLine2\tTabbed\\Backslash\"Quote\"";
+    println("{}", s);
+}
+```
+
+```text
+Line1
+Line2   Tabbed\Backslash"Quote"
+```
+
+---
+
+## `test42.wave` (✔)
+
+```wave
+fun main() {
+    var result: i64 = asm {
+        "mov rax, 123"
+        out("rax") result
+    };
+
+    println("Result is: {}", result);
+}
+```
+
+```text
+Result is: 123
+```
+
+---
+
+## `test43.wave` (✔)
+
+```wave
+fun process(a: i32; b: i32; note: str) {
+    var v: i32 = a + b;
+    v *= 2;
+    v /= 3;
+
+    var i: i32 = 0;
+    while (i < v) {
+        if (i == 5) {
+            println("{}", i);
+            i += 1;
+            println("{}", i);
+            continue;
+        }
+        println("{}", i);
+        i += 1;
+    }
+}
+
+fun main() {
+    process(12, 8, "test");
+}
+```
+
+```text
+0
+1
+2
+3
+4
+5
+6
+6
+7
+8
+9
+10
+11
+12
+```
+
+---
+
+## `test44.wave` (✔)
+
+```wave
+// factorial.wave
+fun factorial(n: i64) -> i64 {
+    if (n <= 1) {
+        return 1;
+    }
+
+    var result: i64 = 1;
+    var i: i64 = 2;
+    while(i <= n) {
+        result = result * i;
+        i = i + 1;
+    }
+
+    return result;
+}
+
+fun main() {
+    var i: i64 = 0;
+    var result: i64 = factorial(i);
+
+    // test from 0 to 10
+    while(i <= 10){
+        println("factorial({}) = {}", i, result);
+        i = i + 1;
+    }
+}
+```
+
+```text
+factorial(0) = 1
+factorial(1) = 1
+factorial(2) = 1
+factorial(3) = 1
+factorial(4) = 1
+factorial(5) = 1
+factorial(6) = 1
+factorial(7) = 1
+factorial(8) = 1
+factorial(9) = 1
+factorial(10) = 1
+```
+
+---
+
+## `test45.wave` (✔)
+
+```wave
+// fibonacci.wave
+fun fibonacci(n: i64) -> i64 {
+    if (n == 0) { return 0; }
+    if (n == 1) { return 1; }
+
+    var prev: i64 = 0;
+    var curr: i64 = 1;
+    var next: i64;
+    var i: i64 = 2;
+
+    while (i <= n) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+        i = i + 1;
+    }
+
+    return curr;
+}
+
+fun main() {
+    var x: i64 = 0;
+    var result: i64;
+
+    while(x <= 10){
+        result = fibonacci(x);
+        println("fibonacci({}) = {}", x, result);
+        x = x + 1;
+    }
+}
+```
+
+```text
+fibonacci(0) = 0
+fibonacci(1) = 1
+fibonacci(2) = 1
+fibonacci(3) = 2
+fibonacci(4) = 3
+fibonacci(5) = 5
+fibonacci(6) = 8
+fibonacci(7) = 13
+fibonacci(8) = 21
+fibonacci(9) = 34
+fibonacci(10) = 55
+```
+
+---
+
+## `test46.wave` (✔)
+
+```wave
+// prime.wave
+// wave has not yet support modulo operator
+
+fun is_prime(n: i64) -> i64 {
+    if (n <= 1) { return 0; }
+    if (n <= 3) { return 1; }
+
+    // check if num is even
+    var num_even: i64;
+    num_even = n / 2;
+    if (num_even * 2 == n) { 
+        return 0; 
+    }
+
+    var i: i64 = 3;
+    var div_result: i64;
+    while (i * i <= n) {
+        div_result = n / i;
+        if (div_result * i == n) {
+            return 0;
+        }
+        i = i + 2;
+    }
+    return 1;
+}
+
+fun main() {
+    var num: i64 = 0;
+    var result: i64;
+
+    while(num <= 50) {
+        result = is_prime(num);
+        println("{} is prime? {}", num, result);
+        num = num + 1;
+    }
+}
+```
+
+```text
+0 is prime? 0
+1 is prime? 0
+2 is prime? 1
+3 is prime? 1
+4 is prime? 0
+5 is prime? 1
+6 is prime? 0
+7 is prime? 1
+8 is prime? 0
+9 is prime? 0
+10 is prime? 0
+11 is prime? 1
+12 is prime? 0
+13 is prime? 1
+14 is prime? 0
+15 is prime? 0
+16 is prime? 0
+17 is prime? 1
+18 is prime? 0
+19 is prime? 1
+20 is prime? 0
+21 is prime? 0
+22 is prime? 0
+23 is prime? 1
+24 is prime? 0
+25 is prime? 0
+26 is prime? 0
+27 is prime? 0
+28 is prime? 0
+29 is prime? 1
+30 is prime? 0
+31 is prime? 1
+32 is prime? 0
+33 is prime? 0
+34 is prime? 0
+35 is prime? 0
+36 is prime? 0
+37 is prime? 1
+38 is prime? 0
+39 is prime? 0
+40 is prime? 0
+41 is prime? 1
+42 is prime? 0
+43 is prime? 1
+44 is prime? 0
+45 is prime? 0
+46 is prime? 0
+47 is prime? 1
+48 is prime? 0
+49 is prime? 0
+50 is prime? 0
+```
+
+---
+
+## `test47.wave` (✔)
+
+```wave
+// calculator.wave
+
+fun main() {
+    var a: i64;
+    var b: i64;
+    var res: i64;
+
+    // plus 12, 5
+    a = 12;
+    b = 5;
+    res = a + b;
+    println("12 + 5 = {}", res);
+
+    // minus 12, 5
+    res = a - b;
+    println("12 - 5 = {}", res);
+
+    // mult 12, 5
+    res = a * b;
+    println("12 * 5 = {}", res);
+
+    // div 12, 5
+    res = a / b;
+    println("12 / 5 = {}", res);
+}
+```
+
+```text
+12 + 5 = 17
+12 - 5 = 7
+12 * 5 = 60
+12 / 5 = 2
+```
+
+---
+
+## `test48.wave` (✔)
+
+```wave
+fun main() {
+    var i :i32 = 0;
+    println("before = {}", i);
+    i = i + 1;
+    println("after = {}", i);
+}
+```
+
+```text
+before = 0
+after = 1
 ```
