@@ -1,0 +1,35 @@
+{
+  "name": "wave-testing",
+  "version": "1.0.0",
+  "description": "A website that shows the results of testing elements in the test/directory of the Wave repository.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunaStev/wave-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LunaStev/wave-testing/issues"
+  },
+  "homepage": "https://github.com/LunaStev/wave-testing#readme",
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "next": "^15.3.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.13"
+  }
+}
