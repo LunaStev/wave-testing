@@ -73,7 +73,14 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+error: Could not find import target 'iosys.wave'
+  --> iosys.wave:0:0
+   |
+   | (source unavailable)
+=======
 ❌ Failed to import 'iosys'
+>>>>>>> origin/master
 ```
 
 ---
@@ -102,7 +109,7 @@ d = 2342342
 
 ---
 
-## `test5.wave` (❌)
+## `test5.wave` (✔)
 
 ```wave
 fun main() {
@@ -118,8 +125,11 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+=======
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Rbrace
+>>>>>>> origin/master
 fwf
 ```
 
@@ -148,7 +158,7 @@ d = 4684684
 ```
 
 
-## `test7.wave` (❌)
+## `test7.wave` (✔)
 
 ```wave
 fun main() {
@@ -173,15 +183,20 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+a is less than or equal to 30
+b is equal to a
+=======
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Rbrace
 b is greater than a
+>>>>>>> origin/master
 ```
 
 ---
 
-## `test8.wave` (❌)
+## `test8.wave` (✔)
 
 ```wave
 fun main() {
@@ -203,8 +218,12 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+a is less than or equal to 30
+=======
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Rbrace
+>>>>>>> origin/master
 b is greater than 30
 ```
 
@@ -360,6 +379,10 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+clang failed: target/temp.ll:50:1: error: expected instruction opcode
+then6:                                            ; preds = %then
+=======
 Error: Expected primary expression, found Println
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Println
@@ -373,6 +396,7 @@ Error: Expected primary expression, found Println
 Error: Expected primary expression, found Rbrace
 clang failed: target/temp.ll:73:1: error: expected instruction opcode
 }
+>>>>>>> origin/master
 ^
 1 error generated.
 
@@ -428,7 +452,7 @@ Hello World 0 10
 
 ---
 
-## `test13.wave` (❌)
+## `test13.wave` (✔)
 
 ```wave
 fun main() {
@@ -438,14 +462,18 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+First = 1
+=======
 thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:390:22:
 Unsupported target in IndexAccess
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+>>>>>>> origin/master
 ```
 
 ---
 
-## `test14.wave` (❌)
+## `test14.wave` (✔)
 
 ```wave
 fun hello(name :i32; namea :i32; nameb :str;) {
@@ -473,7 +501,11 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+name is 10 or less
+=======
 Error: Expected primary expression, found Rbrace
+>>>>>>> origin/master
 Current: 0
 Current: 1
 Current: 2
@@ -504,7 +536,7 @@ fun main() {
 
 ---
 
-## `test16.wave` (❌)
+## `test16.wave` (✔)
 
 ```wave
 fun main() {
@@ -521,7 +553,10 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+=======
 Error: Expected primary expression, found Rbrace
+>>>>>>> origin/master
 Value: 1
 Value: 2
 Value: 4
@@ -610,6 +645,12 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+clang failed: target/temp.ll:89:1: error: expected instruction opcode
+then13:                                           ; preds = %while.body
+^
+1 error generated.
+=======
 Error: Expected primary expression, found Var
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Println
@@ -618,6 +659,7 @@ Error: Expected primary expression, found If
 Error: Expected primary expression, found Else
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Rbrace
+>>>>>>> origin/master
 
 thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:64:17:
 variable 'cnt' not found in current scope
@@ -668,6 +710,8 @@ fun main() {
 
 ---
 
+<<<<<<< HEAD
+=======
 ## `test19.wave` (✔)
 
 ```wave
@@ -690,6 +734,7 @@ fun main() {
 
 ---
 
+>>>>>>> origin/master
 ## `test20.wave` (✔)
 
 ```wave
@@ -810,6 +855,23 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+Error: Expected primary expression, found Input
+Error: Expected primary expression, found "input"
+Error: Expected primary expression, found 21
+Error: Expected ')'
+Error: Expected primary expression, found Rparen
+Error: Expected primary expression, found ")"
+Error: Expected primary expression, found 21
+Error: Unexpected token, cannot start a statement with: Decrement
+Error: Failed to parse statement inside block.
+Error: Failed to parse statement inside block.
+❌ Failed to parse function
+
+thread 'main' panicked at src/runner.rs:17:34:
+Failed to parse Wave code
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+=======
 Error: Expected primary expression, found Rbrace
 Error: Expected primary expression, found Input
 Error: Expected ')'
@@ -817,6 +879,7 @@ Error: Expected primary expression, found Rparen
 Error: Expected primary expression, found Decrement
 Error: Expected primary expression, found Increment
 ❌ Failed to import 'iosys'
+>>>>>>> origin/master
 ```
 
 ---
@@ -837,7 +900,11 @@ fun main() {
 ```text
 x = 10
 p = 10
+<<<<<<< HEAD
+address = 140727602581956
+=======
 address = 140726731450484
+>>>>>>> origin/master
 ```
 
 ---
@@ -1035,14 +1102,19 @@ fun main() {
 
 ```text
 a = 10, b = 20
+<<<<<<< HEAD
+p1 = 140724447595044, p2 = 140724447595040
+pp1 = 140724447595032, pp2 = 140724447595024
+=======
 p1 = 140732170246612, p2 = 140732170246608
 pp1 = 140732170246600, pp2 = 140732170246592
+>>>>>>> origin/master
 deref p1 = 10, deref p2 = 20
 ```
 
 ---
 
-## `test32.wave` (❌)
+## `test32.wave` (✔)
 
 ```wave
 fun main() {
@@ -1058,9 +1130,14 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+deref arr[0] = 10, deref arr[1] = 20
+140736813265220
+=======
 thread 'main' panicked at llvm_temporary/src/llvm_temporary/expression.rs:390:22:
 Unsupported target in IndexAccess
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+>>>>>>> origin/master
 ```
 
 ---
@@ -1095,7 +1172,7 @@ fun main() {
     println("{}", deref deref deref deref deref deref deref deref deref deref p10);
 
 
-    println("bonus:")
+    println("bonus:");
     println("{}", deref p10);
     println("{}", deref deref p10);
     println("{}", deref deref deref p10);
@@ -1121,6 +1198,17 @@ fun main() {
 1
 1
 bonus:
+<<<<<<< HEAD
+140735187207856
+140735187207864
+140735187207872
+140735187207880
+140735187207888
+140735187207896
+140735187207904
+140735187207912
+140735187207924
+=======
 140720655735600
 140720655735608
 140720655735616
@@ -1130,6 +1218,7 @@ bonus:
 140720655735648
 140720655735656
 140720655735668
+>>>>>>> origin/master
 1
 ```
 
@@ -1145,6 +1234,9 @@ fun main() {
 ```
 
 ```text
+<<<<<<< HEAD
+140722625997156
+=======
 140732170515428
 ```
 
@@ -1692,4 +1784,644 @@ fun main() {
 ```text
 before = 0
 after = 1
+>>>>>>> origin/master
 ```
+
+---
+
+## `test35.wave` (✔)
+
+```wave
+fun len(s: str) -> i32 {
+    var count: i32 = 0;
+    while (s[count] != 0) {
+        count = count + 1;
+    }
+    return count;
+}
+
+fun main() {
+    var message: str = "hello, world!";
+    var l: i32 = len(message);
+    println("String Length: {}", l);
+}
+```
+
+```text
+String Length: 13
+```
+
+---
+
+## `test36.wave` (✔)
+
+```wave
+fun main() {
+    var a: i32 = 10;
+    var b: i32 = 3;
+    var c: i32 = a % b;
+    println("{}", c);
+}
+```
+
+```text
+1
+```
+
+---
+
+## `test37.wave` (✔)
+
+```wave
+fun main() {
+    var a: i32 = 10;
+    var b: i32 = 3;
+    var f: f32 = 10.0;
+    var g: f32 = 2.5;
+
+    a += b;
+    println("a += b: {}", a); // 13
+
+    a -= 5;
+    println("a -= 5: {}", a); // 8
+
+    a *= 2;
+    println("a *= 2: {}", a); // 16
+
+    a /= 4;
+    println("a /= 4: {}", a); // 4
+
+    a %= 3;
+    println("a %= 3: {}", a); // 1
+
+    f += g;
+    println("f += g: {}", f); // 12.5
+
+    f -= 1.5;
+    println("f -= 1.5: {}", f); // 11.0
+
+    f *= 2.0;
+    println("f *= 2.0: {}", f); // 22.0
+
+    f /= 2.0;
+    println("f /= 2.0: {}", f); // 11.0
+
+    f %= 2.0;
+    println("f %= 2.0: {}", f); // 1.0
+}
+```
+
+```text
+a += b: 13
+a -= 5: 8
+a *= 2: 16
+a /= 4: 4
+a %= 3: 1
+f += g: 12.500000
+f -= 1.5: 11.000000
+f *= 2.0: 22.000000
+f /= 2.0: 11.000000
+f %= 2.0: 1.000000
+```
+
+---
+
+## `test38.wave` (✔)
+
+```wave
+fun calculate_values(x: i32, y: i32, factor: f32) -> f32 {
+    println("inside calculate_values");
+    var result: f32 = x;
+    result += y;
+    result *= factor;
+    return result;
+}
+
+fun main() {
+    println("start");
+
+    var a: i32 = 12;
+    var b: i32 = 7;
+    var c: i32 = 3;
+    println("before math");
+
+    var f: f32 = 4.5;
+    var g: f32 = 2.0;
+
+    println("before operations");
+
+    a += b;
+    b *= 2;
+    c -= 1;
+
+    println("before function call");
+
+    var result: f32 = calculate_values(a, b, f);
+
+    println("after function call, result: {}", result);
+}
+```
+
+```text
+start
+before math
+before operations
+before function call
+inside calculate_values
+after function call, result: 148.500000
+```
+
+---
+
+## `test39.wave` (✔)
+
+```wave
+fun transform(x: i32, y: i32, scale: f32) -> f32 {
+    println("inside transform");
+    var base: i32 = x * 2;
+    base += y;
+    var result: f32 = base;
+    result *= scale;
+    return result;
+}
+
+fun display_pattern(levels: i32) -> i32 {
+    var i: i32 = 1;
+    while (i <= levels) {
+        var j: i32 = 1;
+        while (j <= i) {
+            print("#");
+            j += 1;
+        }
+        println(" ");
+        i += 1;
+    }
+    return 0;
+}
+
+fun process(a: i32, b: i32, note: str) -> i32 {
+    println("== PROCESS START ==");
+
+    var v: i32 = a;
+    v += b;
+    println("Initial v: {}", v);
+
+    v *= 2;
+    v /= 3;
+    println("After scaling: {}", v);
+
+    if (v % 2 == 0) {
+        println("{} is even", v);
+    } else {
+        println("{} is odd", v);
+    }
+
+    var acc: i32 = 0;
+    var i: i32 = 0;
+    while (i < v) {
+        if (i == 5) {
+            i += 1;
+            continue;
+        }
+        acc += i;
+        println("Looping i: {}, acc: {}", i, acc);
+        i += 1;
+    }
+
+    display_pattern(4);
+    println("Note: {}", note);
+    println("== PROCESS END ==");
+    return 0;
+}
+
+fun main() {
+    println("=== WAVE PROGRAM START ===");
+
+    var a: i32 = 8;
+    var b: i32 = 4;
+    var f: f32 = 3.0;
+    var g: f32 = 1.5;
+
+    a += b;
+    b *= 2;
+    f += g;
+
+    println("a: {}, b: {}, f: {}", a, b, f);
+
+    if (a != b) {
+        println("{} != {}", a, b);
+    }
+
+    var result: f32 = transform(a, b, f);
+    println("Final result: {}", result);
+
+    process(a, b, "Wave language engaged!");
+
+    println("=== WAVE PROGRAM END ===");
+}
+```
+
+```text
+=== WAVE PROGRAM START ===
+a: 12, b: 8, f: 4.500000
+12 != 8
+inside transform
+Final result: 144.000000
+== PROCESS START ==
+Initial v: 20
+After scaling: 13
+13 is odd
+Looping i: 0, acc: 0
+Looping i: 1, acc: 1
+Looping i: 2, acc: 3
+Looping i: 3, acc: 6
+Looping i: 4, acc: 10
+Looping i: 6, acc: 16
+Looping i: 7, acc: 23
+Looping i: 8, acc: 31
+Looping i: 9, acc: 40
+Looping i: 10, acc: 50
+Looping i: 11, acc: 61
+Looping i: 12, acc: 73
+#
+##
+###
+####
+Note: Wave language engaged!
+== PROCESS END ==
+=== WAVE PROGRAM END ===
+```
+
+---
+
+## `test40.wave` (❌)
+
+```wave
+fun main() {
+    var msg_ptr: ptr<str> = "Hello";
+    var msg_ptr2: ptr<i8> = "Hello";
+    println("{}", msg_ptr);
+    println("{}", msg_ptr2);
+}
+```
+
+```text
+clang failed: target/temp.ll:12:9: error: stored value and pointer type do not match
+  store i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str_init_msg_ptr, i32 0, i32 0), i8*** %msg_ptr, align 8
+        ^
+1 error generated.
+
+Failed to generate machine code
+```
+
+---
+
+## `test41.wave` (✔)
+
+```wave
+fun main() {
+    var s :str = "Line1\nLine2\tTabbed\\Backslash\"Quote\"";
+    println("{}", s);
+}
+```
+
+```text
+Line1
+Line2   Tabbed\Backslash"Quote"
+```
+
+---
+
+## `test42.wave` (✔)
+
+```wave
+fun main() {
+    var result: i64 = asm {
+        "mov rax, 123"
+        out("rax") result
+    };
+
+    println("Result is: {}", result);
+}
+```
+
+```text
+Result is: 123
+```
+
+---
+
+## `test43.wave` (❌)
+
+```wave
+fun process(a: i32; b: i32; note: str) {
+    var v: i32 = a + b;
+    v *= 2;
+    v /= 3;
+
+    var i: i32 = 0;
+    while (i < v) {
+        if (i == 5) {
+            println("{}", i);
+            i += 1;
+            println("{}", i);
+            continue;
+        }
+        println("{}", i);
+        i += 1;
+    }
+}
+
+fun main() {
+    process(12, 8, "test");
+}
+```
+
+```text
+Error: use `,` instead of `;` to separate parameters
+❌ Expected '{' at the beginning of function body
+❌ Failed to parse function
+
+thread 'main' panicked at src/runner.rs:17:34:
+Failed to parse Wave code
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+```
+
+---
+
+## `test44.wave` (✔)
+
+```wave
+// factorial.wave
+fun factorial(n: i64) -> i64 {
+    if (n <= 1) {
+        return 1;
+    }
+
+    var result: i64 = 1;
+    var i: i64 = 2;
+    while(i <= n) {
+        result = result * i;
+        i = i + 1;
+    }
+
+    return result;
+}
+
+fun main() {
+    var i: i64 = 0;
+    var result: i64 = factorial(i);
+
+    // test from 0 to 10
+    while(i <= 10){
+        println("factorial({}) = {}", i, result);
+        i = i + 1;
+    }
+}
+```
+
+```text
+factorial(0) = 1
+factorial(1) = 1
+factorial(2) = 1
+factorial(3) = 1
+factorial(4) = 1
+factorial(5) = 1
+factorial(6) = 1
+factorial(7) = 1
+factorial(8) = 1
+factorial(9) = 1
+factorial(10) = 1
+```
+
+---
+
+## `test45.wave` (✔)
+
+```wave
+// fibonacci.wave
+fun fibonacci(n: i64) -> i64 {
+    if (n == 0) { return 0; }
+    if (n == 1) { return 1; }
+
+    var prev: i64 = 0;
+    var curr: i64 = 1;
+    var next: i64;
+    var i: i64 = 2;
+
+    while (i <= n) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+        i = i + 1;
+    }
+
+    return curr;
+}
+
+fun main() {
+    var x: i64 = 0;
+    var result: i64;
+
+    while(x <= 10){
+        result = fibonacci(x);
+        println("fibonacci({}) = {}", x, result);
+        x = x + 1;
+    }
+}
+```
+
+```text
+fibonacci(0) = 0
+fibonacci(1) = 1
+fibonacci(2) = 1
+fibonacci(3) = 2
+fibonacci(4) = 3
+fibonacci(5) = 5
+fibonacci(6) = 8
+fibonacci(7) = 13
+fibonacci(8) = 21
+fibonacci(9) = 34
+fibonacci(10) = 55
+```
+
+---
+
+## `test46.wave` (✔)
+
+```wave
+// prime.wave
+// wave has not yet support modulo operator
+
+fun is_prime(n: i64) -> i64 {
+    if (n <= 1) { return 0; }
+    if (n <= 3) { return 1; }
+
+    // check if num is even
+    var num_even: i64;
+    num_even = n / 2;
+    if (num_even * 2 == n) { 
+        return 0; 
+    }
+
+    var i: i64 = 3;
+    var div_result: i64;
+    while (i * i <= n) {
+        div_result = n / i;
+        if (div_result * i == n) {
+            return 0;
+        }
+        i = i + 2;
+    }
+    return 1;
+}
+
+fun main() {
+    var num: i64 = 0;
+    var result: i64;
+
+    while(num <= 50) {
+        result = is_prime(num);
+        println("{} is prime? {}", num, result);
+        num = num + 1;
+    }
+}
+```
+
+```text
+0 is prime? 0
+1 is prime? 0
+2 is prime? 1
+3 is prime? 1
+4 is prime? 0
+5 is prime? 1
+6 is prime? 0
+7 is prime? 1
+8 is prime? 0
+9 is prime? 0
+10 is prime? 0
+11 is prime? 1
+12 is prime? 0
+13 is prime? 1
+14 is prime? 0
+15 is prime? 0
+16 is prime? 0
+17 is prime? 1
+18 is prime? 0
+19 is prime? 1
+20 is prime? 0
+21 is prime? 0
+22 is prime? 0
+23 is prime? 1
+24 is prime? 0
+25 is prime? 0
+26 is prime? 0
+27 is prime? 0
+28 is prime? 0
+29 is prime? 1
+30 is prime? 0
+31 is prime? 1
+32 is prime? 0
+33 is prime? 0
+34 is prime? 0
+35 is prime? 0
+36 is prime? 0
+37 is prime? 1
+38 is prime? 0
+39 is prime? 0
+40 is prime? 0
+41 is prime? 1
+42 is prime? 0
+43 is prime? 1
+44 is prime? 0
+45 is prime? 0
+46 is prime? 0
+47 is prime? 1
+48 is prime? 0
+49 is prime? 0
+50 is prime? 0
+```
+
+---
+
+## `test47.wave` (✔)
+
+```wave
+// calculator.wave
+
+fun main() {
+    var a: i64;
+    var b: i64;
+    var res: i64;
+
+    // plus 12, 5
+    a = 12;
+    b = 5;
+    res = a + b;
+    println("12 + 5 = {}", res);
+
+    // minus 12, 5
+    res = a - b;
+    println("12 - 5 = {}", res);
+
+    // mult 12, 5
+    res = a * b;
+    println("12 * 5 = {}", res);
+
+    // div 12, 5
+    res = a / b;
+    println("12 / 5 = {}", res);
+}
+```
+
+```text
+12 + 5 = 17
+12 - 5 = 7
+12 * 5 = 60
+12 / 5 = 2
+```
+
+---
+
+## `test48.wave` (✔)
+
+```wave
+fun main() {
+    var i :i32 = 0;
+    println("before = {}", i);
+    i = i + 1;
+    println("after = {}", i);
+}
+```
+
+```text
+before = 0
+after = 1
+```
+
+---
+
+## `test49.wave` (✔)
+
+```wave
+fun main() {
+    var dummy_ptr: ptr<i8> = "dummy";
+    var ret_val: i64;
+
+    asm {
+        "mov rax, 257" // syscall openat
+        "syscall"
+        in("rdi") -100
+        in("rsi") dummy_ptr
+        in("rdx") 0
+        out("rax") ret_val
+    }
+
+    println("syscall result: {}", ret_val);
+}
+```
+
+```text
+syscall result: -2
+```
+
